@@ -1,0 +1,9 @@
+P:\Projects\ADStore\ADStore.Infrastructure\bin\Debug\netcoreapp3.1\ADStore.Infrastructure.deps.json
+P:\Projects\ADStore\ADStore.Infrastructure\bin\Debug\netcoreapp3.1\ADStore.Infrastructure.dll
+P:\Projects\ADStore\ADStore.Infrastructure\bin\Debug\netcoreapp3.1\ADStore.Infrastructure.pdb
+P:\Projects\ADStore\ADStore.Infrastructure\obj\Debug\netcoreapp3.1\ADStore.Infrastructure.csprojAssemblyReference.cache
+P:\Projects\ADStore\ADStore.Infrastructure\obj\Debug\netcoreapp3.1\ADStore.Infrastructure.AssemblyInfoInputs.cache
+P:\Projects\ADStore\ADStore.Infrastructure\obj\Debug\netcoreapp3.1\ADStore.Infrastructure.AssemblyInfo.cs
+P:\Projects\ADStore\ADStore.Infrastructure\obj\Debug\netcoreapp3.1\ADStore.Infrastructure.csproj.CoreCompileInputs.cache
+P:\Projects\ADStore\ADStore.Infrastructure\obj\Debug\netcoreapp3.1\ADStore.Infrastructure.dll
+P:\Projects\ADStore\ADStore.Infrastructure\obj\Debug\netcoreapp3.1\ADStore.Infrastructure.pdb

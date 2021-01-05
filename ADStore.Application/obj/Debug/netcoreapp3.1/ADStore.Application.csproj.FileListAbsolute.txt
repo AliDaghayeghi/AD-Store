@@ -1,0 +1,14 @@
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Application.deps.json
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Application.dll
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Application.pdb
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Domain.dll
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Domain.pdb
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.csprojAssemblyReference.cache
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.AssemblyInfoInputs.cache
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.AssemblyInfo.cs
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.csproj.CoreCompileInputs.cache
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.csproj.CopyComplete
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.dll
+P:\Projects\ADStore\ADStore.Application\obj\Debug\netcoreapp3.1\ADStore.Application.pdb
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Common.dll
+P:\Projects\ADStore\ADStore.Application\bin\Debug\netcoreapp3.1\ADStore.Common.pdb

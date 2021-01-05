@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DjhOCiJ3vD68HW3RrvuJWn0idQlzKl/KxfO7br45OEDQhMxdKmY3nlk06BbDuoSYUsTIQUqb96jFf3/+K8Cgtg==",
+  "success": true,
+  "projectFilePath": "P:\\Projects\\ADStore\\ADStore.Common\\ADStore.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AD.enp\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.5\\microsoft.aspnetcore.cryptography.internal.3.1.5.nupkg.sha512",
+    "C:\\Users\\AD.enp\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.5\\microsoft.aspnetcore.cryptography.keyderivation.3.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

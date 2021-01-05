@@ -1,0 +1,373 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using ADStore.Application.Services.Users.Queries.GetUsers
+@model ReslutGetUserDto;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Adminlayout.cshtml";
+    int UserCount = 1;
+}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Zero configuration table -->
+        <section id="configuration">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-success">
+                                <h4 class="card-title">لیست کاربران</h4>
+                            </div>
+                        </div>
+                        <div class="card-body collapse show">
+                            <div class="card-block card-dashboard">
+                                <p class="card-text">لیست کاربران فروشگاه</p>
+
+                                <form method="get" class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <input type="text" class="form-control" name="serchkey">
+                                        <button class="btn btn-success">جستجو</button>
+                                    </fieldset>
+                                </form>
+
+
+                                <section id="extended">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="card-title-wrap bar-success">
+                                                        <h4 class="card-title">لیست کاربران فروشگاه</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="card-block">
+                                                        <table class="table table-responsive-md text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>فعال بودن</th>
+                                                                    <th>نام و نام خانوادگی</th>
+                                                                    <th>ایمیل</th>
+                                                                    <th>شماره تلفن</th>
+                                                                    <th> آدرس</th>
+                                                                    <th>تغییرات</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in Model.Users)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@UserCount</td>
+                                                                        <td>
+                                                                            @if (item.IsActive)
+                                                                            {
+                                                                                <div class="custom-control custom-checkbox m-0">
+                                                                                    <input type="checkbox" class="custom-control-input" checked="checked" onclick="UserStatusChange('@item.Id')" id=@item.Id>
+                                                                                    <label class="custom-control-label" for="@item.Id"></label>
+                                                                                </div>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <div class="custom-control custom-checkbox m-0">
+                                                                                    <input type="checkbox" class="custom-control-input" onclick="UserStatusChange('@item.Id')" id=@item.Id>
+                                                                                    <label class="custom-control-label" for="@item.Id"></label>
+                                                                                </div>
+                                                                            }
+
+                                                                        </td>
+                                                                        <td>@item.FullName</td>
+                                                                        <td>@item.Email</td>
+                                                                        <td>@item.Phone</td>
+                                                                        <td>@item.Location</td>
+                                                                        <td>
+
+                                                                            <a class="success p-0"
+                                                                               onclick="ShowModalEdituser(
+                                                                                 '@item.Id',
+                                                                                 '@item.FullName',
+                                                                                 '@item.Email',
+                                                                                 '@item.Phone',
+                                                                                 '@item.Location')"
+                                                                               data-original-title="" title="">
+                                                                                <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                                                                            </a>
+
+                                                                            <a class="danger p-0" onclick="DeleteUser('@item.Id')" data-original-title="" title="">
+                                                                                <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                                                                            </a>
+
+
+                                                                        </td>
+                                                                    </tr>
+                                                                    UserCount++;
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+
+                                <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">نمایش 1 تا 10 از 57 سطرها</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">قبلی</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0" class="page-link">بعدی</a></li></ul></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+
+    <link href="~/Sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert2/sweetalert2.min.js"></script>
+
+    <script>
+
+
+        function DeleteUser(UserId) {
+            swal.fire({
+                title: 'حذف کاربر',
+                text: "کاربر گرامی از حذف کاربر مطمئن هستید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'بله ، کاربر حذف شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'UserId': UserId,
+                    };
+
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "Delete",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess == true) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function (isConfirm) {
+                                    location.reload();
+                                });
+                            }
+                            else {
+
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+
+                    });
+
+                }
+            })
+        }
+
+
+        function UserStatusChange(UserId) {
+            swal.fire({
+                title: 'تغییر وضعیت کاربر',
+                text: "کاربر گرامی از تغییر وضعیت کاربر مطمئن هستید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'بله ، تغییر وضعیت انجام شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+
+                    var postData = {
+                        'UserId': UserId,
+                    };
+
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "UserStatusChange",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess == true) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function (isConfirm) {
+                                    location.reload();
+                                });
+                            }
+                            else {
+
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+
+                    });
+
+                }
+            })
+        }
+
+
+        function Edituser() {
+
+            var userId = $("#Edit_UserId").val();
+            var fullName = $("#Edit_Fullname").val();
+            var email = $("#Edit_Email").val();
+            var phone = $("#Edit_Phone").val();
+            var address = $("#Edit_Address").val();
+
+
+
+            var postData = {
+                'UserId': userId,
+                'FullName': fullName,
+                'Email': email,
+                'Phone': phone,
+                'Address': address,
+            };
+
+
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: "POST",
+                url: "Edit",
+                data: postData,
+                success: function (data) {
+                    if (data.isSuccess == true) {
+                        swal.fire(
+                            'موفق!',
+                            data.message,
+                            'success'
+                        ).then(function (isConfirm) {
+                            location.reload();
+                        });
+                    }
+                    else {
+                        swal.fire(
+                            'هشدار!',
+                            data.message,
+                            'warning'
+                        );
+                    }
+                },
+                error: function (request, status, error) {
+                    alert(request.responseText);
+                }
+            });
+
+            $('#EditUser').modal('hide');
+
+        }
+
+
+        function ShowModalEdituser(userId, fullName, email, phone, address) {
+            $('#Edit_UserId').val(userId)
+            $('#Edit_Fullname').val(fullName)
+            $('#Edit_Email').val(email)
+            $('#Edit_Phone').val(phone)
+            $('#Edit_Address').val(address)
+
+            $('#EditUser').modal('show');
+        }
+
+    </script>
+
+
+
+
+
+
+}
+
+
+@section Modals
+{
+    <!-- Modal Edit User -->
+    <div class="modal fade" id="EditUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">ویرایش کاربر</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                        <fieldset class="form-group">
+                            <input type="hidden" id="Edit_UserId" />
+                            <label for="basicInput">نام و نام خانوادگی</label>
+                            <input type="text" class="form-control" id="Edit_Fullname">
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                        <fieldset class="form-group">
+                            <input type="hidden" id="Edit_UserId" />
+                            <label for="basicInput">ایمیل</label>
+                            <input type="text" class="form-control" id="Edit_Email">
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                        <fieldset class="form-group">
+                            <input type="hidden" id="Edit_UserId" />
+                            <label for="basicInput">شماره تلفن</label>
+                            <input type="text" class="form-control" id="Edit_Phone">
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                        <fieldset class="form-group">
+                            <input type="hidden" id="Edit_UserId" />
+                            <label for="basicInput">آدرس</label>
+                            <input type="text" class="form-control" id="Edit_Address">
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary" data-dismiss="modal">بستن</a>
+                    <a class="btn btn-primary" onclick="Edituser()">اعمال تغییرات</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
